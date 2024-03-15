@@ -233,7 +233,17 @@ do
 				local configs = require("nvim-treesitter.configs")
 
 				configs.setup({
-					ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html", "rust", "toml" },
+					ensure_installed = {
+						"javascript",
+						"json",
+						"lua",
+						"markdown",
+						"markdown_inline",
+						"rust",
+						"toml",
+						"typescript",
+						"zig"
+					},
 					sync_install = false,
 					highlight = { enable = true },
 					indent = { enable = true },
@@ -252,8 +262,11 @@ do
 					ensure_installed = {
 						"denols",
 						"lua_ls",
+						"marksman",
 						"rust_analyzer",
-						"tsserver"
+						"taplo",
+						"tsserver",
+						"zls"
 					},
 				}
 				require("mason-lspconfig").setup_handlers {
