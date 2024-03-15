@@ -11,6 +11,7 @@ do
 	opt.signcolumn = "number"
 	opt.cursorline = true
 	opt.tabstop = 4
+	opt.shiftwidth = 4
 	opt.termguicolors = true
 	opt.showmode = false
 	opt.cmdheight = 0
