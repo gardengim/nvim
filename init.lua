@@ -184,6 +184,14 @@ do
 			config = true
 		},
 		{
+			'rmagatti/auto-session',
+			config = function()
+				require("auto-session").setup {
+					log_level = "error",
+				}
+			end
+		},
+		{
 			'windwp/nvim-autopairs',
 			event = "InsertEnter",
 			config = true
