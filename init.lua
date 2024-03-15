@@ -194,6 +194,10 @@ do
 			config = true
 		},
 		{
+			"Pocco81/auto-save.nvim",
+			config = true
+		},
+		{
 			'rmagatti/auto-session',
 			config = function()
 				require("auto-session").setup {
