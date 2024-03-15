@@ -263,7 +263,7 @@ do
 						"denols",
 						"jsonls",
 						"lua_ls",
-						"remark_ls",
+						"marksman",
 						"rust_analyzer",
 						"taplo",
 						"tsserver",
