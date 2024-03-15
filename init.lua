@@ -128,7 +128,20 @@ do
 			'akinsho/bufferline.nvim',
 			version = "*",
 			dependencies = 'nvim-tree/nvim-web-devicons',
-			config = true
+			config = function()
+				local bufferline = require("bufferline");
+				bufferline.setup()
+				vim.keymap.set("n", "<leader>1", function() bufferline.go_to(1, true) end, {desc = "Go to 1st buffer"})
+				vim.keymap.set("n", "<leader>2", function() bufferline.go_to(2, true) end, {desc = "Go to 2nd buffer"})
+				vim.keymap.set("n", "<leader>3", function() bufferline.go_to(3, true) end, {desc = "Go to 3rd buffer"})
+				vim.keymap.set("n", "<leader>4", function() bufferline.go_to(4, true) end, {desc = "Go to 4th buffer"})
+				vim.keymap.set("n", "<leader>5", function() bufferline.go_to(5, true) end, {desc = "Go to 5th buffer"})
+				vim.keymap.set("n", "<leader>6", function() bufferline.go_to(6, true) end, {desc = "Go to 6th buffer"})
+				vim.keymap.set("n", "<leader>7", function() bufferline.go_to(7, true) end, {desc = "Go to 7th buffer"})
+				vim.keymap.set("n", "<leader>8", function() bufferline.go_to(8, true) end, {desc = "Go to 8th buffer"})
+				vim.keymap.set("n", "<leader>9", function() bufferline.go_to(9, true) end, {desc = "Go to 9th buffer"})
+				vim.keymap.set("n", "<leader>0", function() bufferline.go_to(-1, true) end, {desc = "Go to the last buffer"})
+			end
 		},
 		{
 			"petertriho/nvim-scrollbar",
