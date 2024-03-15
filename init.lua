@@ -158,6 +158,10 @@ do
 			config = true
 		},
 		{
+			'vladdoster/remember.nvim',
+			config = true
+		},
+		{
 			'windwp/nvim-autopairs',
 			event = "InsertEnter",
 			config = true
