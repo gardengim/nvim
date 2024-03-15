@@ -21,11 +21,6 @@ do
 	wo.wrap = false
 end
 
-do
-	local set = vim.keymap.set
-	set("n", "<leader>e", "<cmd>Neotree toggle<cr>")
-	set("n", "<leader>f", vim.lsp.buf.format, { desc = "LSP Format" })
-end
 
 do
 	local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -61,7 +56,18 @@ do
 				"nvim-lua/plenary.nvim",
 				"nvim-tree/nvim-web-devicons",
 				"MunifTanjim/nui.nvim",
-			}
+			},
+			config = function()
+				vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<cr>")
+			end
+		},
+		{
+			'akinsho/toggleterm.nvim',
+			version = "*",
+			config = function()
+				require("toggleterm").setup()
+				vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>")
+			end
 		},
 		{
 			'nvim-lualine/lualine.nvim',
@@ -77,7 +83,7 @@ do
 							statusline = {},
 							winbar = {},
 						},
-						ignore_focus = { 'neo-tree' },
+						ignore_focus = { 'neo-tree', 'toggleterm' },
 						always_divide_middle = true,
 						globalstatus = true,
 						refresh = {
@@ -87,7 +93,14 @@ do
 						}
 					},
 					sections = {
-						lualine_a = { 'mode' },
+						lualine_a = {
+							{
+								'mode',
+								fmt = function(str)
+									return str:sub(1, 1)
+								end
+							}
+						},
 						lualine_b = { 'branch', 'diff', 'diagnostics' },
 						lualine_c = {},
 						lualine_x = { 'encoding' },
@@ -145,6 +158,11 @@ do
 			config = true
 		},
 		{
+			'windwp/nvim-autopairs',
+			event = "InsertEnter",
+			config = true
+		},
+		{
 			'nvim-treesitter/nvim-treesitter',
 			build = ":TSUpdate",
 			config = function()
@@ -192,6 +210,8 @@ do
 						end
 
 						lspconfig[server_name].setup(config)
+						vim.keymap.set("n", "<leader>F", vim.lsp.buf.format,
+							{ desc = "LSP Format" })
 					end
 				}
 			end
