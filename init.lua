@@ -92,7 +92,7 @@ do
 							statusline = {},
 							winbar = {},
 						},
-						ignore_focus = { 'neo-tree', 'toggleterm' },
+						ignore_focus = { 'neo-tree', 'TelescopePrompt', 'toggleterm' },
 						always_divide_middle = true,
 						globalstatus = true,
 						refresh = {
@@ -195,6 +195,22 @@ do
 			'windwp/nvim-autopairs',
 			event = "InsertEnter",
 			config = true
+		},
+		{
+			'nvim-telescope/telescope.nvim',
+			dependencies = {
+				'nvim-lua/plenary.nvim',
+				'nvim-treesitter/nvim-treesitter',
+				'nvim-tree/nvim-web-devicons'
+			},
+			config = function()
+				local telescope = require("telescope.builtin")
+				vim.keymap.set("n", "<leader>ff", function() telescope.find_files() end,
+					{ desc = "Telescope find files" })
+				vim.keymap.set("n", "<leader>fg", function() telescope.live_grep() end, { desc = "Telescope live grep" })
+				vim.keymap.set("n", "<leader>fb", function() telescope.buffers() end, { desc = "Telescope buffers" })
+				vim.keymap.set("n", "<leader>fh", function() telescope.help_tags() end, { desc = "Telescope help tags" })
+			end
 		},
 		{
 			'nvim-treesitter/nvim-treesitter',
