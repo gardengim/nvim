@@ -261,8 +261,9 @@ do
 				require("mason-lspconfig").setup {
 					ensure_installed = {
 						"denols",
+						"jsonls",
 						"lua_ls",
-						"marksman",
+						"remark_ls",
 						"rust_analyzer",
 						"taplo",
 						"tsserver",
