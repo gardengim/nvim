@@ -151,6 +151,7 @@ do
 				vim.keymap.set("n", "<leader>9", function() bufferline.go_to(9, true) end, { desc = "Go to 9th buffer" })
 				vim.keymap.set("n", "<leader>0", function() bufferline.go_to(-1, true) end,
 					{ desc = "Go to the last buffer" })
+				vim.keymap.set("n", "<leader>q", "<cmd>bd<cr>", { desc = "Quit buffer" })
 			end
 		},
 		{
@@ -195,8 +196,8 @@ do
 		},
 		{
 			"okuuva/auto-save.nvim",
-			config = function ()
-				require("auto-save").setup{
+			config = function()
+				require("auto-save").setup {
 					execution_message = {
 						enabled = false
 					}
