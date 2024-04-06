@@ -241,11 +241,14 @@ do
 
 				configs.setup({
 					ensure_installed = {
+						"c",
+						"cpp",
 						"javascript",
 						"json",
 						"lua",
 						"markdown",
 						"markdown_inline",
+						"python",
 						"rust",
 						"toml",
 						"typescript",
@@ -267,10 +270,12 @@ do
 			config = function()
 				require("mason-lspconfig").setup {
 					ensure_installed = {
+						"clangd",
 						"denols",
 						"jsonls",
 						"lua_ls",
 						"marksman",
+						"pylsp",
 						"rust_analyzer",
 						"taplo",
 						"tsserver",
